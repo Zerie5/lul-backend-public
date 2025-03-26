@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- Reduce notification system logs -->
+    <logger name="com.lul.service.NotificationService" level="ERROR"/>
+    <logger name="com.lul.service.NotificationProcessor" level="ERROR"/>
+    <logger name="com.lul.repository.NotificationQueueRepository" level="ERROR"/>
+    
+    <!-- Disable Hibernate SQL logging -->
+    <logger name="org.hibernate.SQL" level="OFF"/>
+    <logger name="org.hibernate.type.descriptor.sql" level="OFF"/>
+    <logger name="org.hibernate.engine.jdbc.spi.SqlExceptionHelper" level="ERROR"/>
+    
+    <!-- Keep API and important service logs visible -->
+    <logger name="com.lul.controller" level="DEBUG"/>
+    <logger name="com.lul.service.NonWalletTransferService" level="DEBUG"/>
+    
+    <!-- Set default levels -->
+    <logger name="com.lul" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.hibernate" level="WARN"/>
+    
+    <!-- Filter out specific repetitive messages -->
+    <logger name="com.zaxxer.hikari" level="WARN"/>
+    
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration> 
